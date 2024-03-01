@@ -3,8 +3,8 @@ package logic
 import (
 	"context"
 
-	"gotalk/gotalk/internal/svc"
-	"gotalk/gotalk/internal/types"
+	"gotalk/internal/svc"
+	"gotalk/internal/types"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )

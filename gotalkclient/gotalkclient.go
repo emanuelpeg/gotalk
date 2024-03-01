@@ -4,15 +4,15 @@ import (
 	"flag"
 	"fmt"
 
-	"gotalk/internal/config"
-	"gotalk/internal/handler"
-	"gotalk/internal/svc"
+	"gotalkclient/internal/config"
+	"gotalkclient/internal/handler"
+	"gotalkclient/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/rest"
 )
 
-var configFile = flag.String("f", "gotalk/etc/gotalk-api.yaml", "the config file")
+var configFile = flag.String("f", "etc/gotalkclient-api.yaml", "the config file")
 
 func main() {
 	flag.Parse()

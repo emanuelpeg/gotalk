@@ -1,7 +1,7 @@
 package svc
 
 import (
-	"gotalk/internal/config"
+	"gotalkclient/internal/config"
 )
 
 type ServiceContext struct {

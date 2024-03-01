@@ -4,12 +4,12 @@ import (
 	"net/http"
 
 	"github.com/zeromicro/go-zero/rest/httpx"
-	"gotalk/internal/logic"
-	"gotalk/internal/svc"
-	"gotalk/internal/types"
+	"gotalkclient/internal/logic"
+	"gotalkclient/internal/svc"
+	"gotalkclient/internal/types"
 )
 
-func GotalkHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
+func GotalkclientHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var req types.Request
 		if err := httpx.Parse(r, &req); err != nil {
@@ -17,8 +17,8 @@ func GotalkHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 			return
 		}
 
-		l := logic.NewGotalkLogic(r.Context(), svcCtx)
-		resp, err := l.Gotalk(&req)
+		l := logic.NewGotalkclientLogic(r.Context(), svcCtx)
+		resp, err := l.Gotalkclient(&req)
 		if err != nil {
 			httpx.ErrorCtx(r.Context(), w, err)
 		} else {
