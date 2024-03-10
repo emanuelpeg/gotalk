@@ -11,5 +11,8 @@ type Response {
 service gotalk-api {
 	@handler GotalkHandler
 	get /from/:name (Request) returns (Response)
+
+	@handler HealthCheckHandler
+	get /health returns (Response)
 }
 
