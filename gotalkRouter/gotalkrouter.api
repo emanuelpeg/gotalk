@@ -1,18 +1,44 @@
 syntax = "v1"
 
 type Request {
-	Name string `path:"name,options=you|me"`
+    Name string `path:"name,options=you|me"`
 }
 
 type Response {
-	Message string `json:"message"`
+    Message string `json:"message"`
+}
+
+type User {
+    Name string `json:"name"`
+    Ip string `json:"ip"`
+}
+
+type RequestWithUser {
+    User User `json:"user"`
+}
+
+type ResponseWithMessage {
+    Message string `json:"message"`
+}
+
+type ResponseUsers {
+    Users []User `json:"users"`
 }
 
 service gotalkRouter-api {
-	@handler GotalkRouterHandler
-	get /from/:name (Request) returns (Response)
+    @handler GotalkRouterHandler
+    get /from/:name (Request) returns (Response)
 
-	@handler HealthCheckHandler
-	get /health returns (Response)
+    @handler HealthCheckHandler
+    get /health returns (Response)
+
+    @handler UsersHandler
+    get /users returns (ResponseUsers)
+
+    @handler AddUsersHandler
+    put /users (RequestWithUser) returns (ResponseWithMessage)
+
+    @handler DeleteUsersHandler
+    delete /users (RequestWithUser) returns (ResponseWithMessage)
 }
 

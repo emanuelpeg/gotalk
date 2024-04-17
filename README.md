@@ -25,18 +25,18 @@ Chat in golang
 - To start the **gotalk** service run `go run gotalk/gotalk.go -f gotalk/etc/gotalk-api.yaml`.
 - To start the **gotalkRouter** service run `go run gotalkRouter/gotalkrouter.go -f gotalkRouter/etc/gotalkRouter-api.yaml`.
 - Alternatively, if the first option gives you an error about the import paths:
-  - Navigate to the gotalk directory first using `cd gotalk`
-  - And then `go run gotalk.go -f etc/gotalk-api.yaml`.
+- Navigate to the gotalk directory first using `cd gotalk`
+- And then `go run gotalk.go -f etc/gotalk-api.yaml`.
 
 
 ### Endpoints
 - Gotalk example
-  - `curl -i "http://127.0.0.1:8888/from/me"`
-  - `curl -i "http://127.0.0.1:8888/from/you"`
+- `curl -i "http://127.0.0.1:8888/from/me"`
+- `curl -i "http://127.0.0.1:8888/from/you"`
 - Gotalk router
-  - `curl -i "http://127.0.0.1:8889/from/me"`
+- `curl -i "http://127.0.0.1:8889/from/me"`
 - Health check
-  - `curl -i "http://127.0.0.1:8888/health"`
+- `curl -i "http://127.0.0.1:8888/health"`
 
 
 ## Good Reads
