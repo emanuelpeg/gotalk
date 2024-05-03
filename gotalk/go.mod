@@ -5,6 +5,11 @@ go 1.22.0
 require github.com/zeromicro/go-zero v1.6.2
 
 require (
+	github.com/go-resty/resty/v2 v2.11.0
+	github.com/hashicorp/go-uuid v1.0.3
+)
+
+require (
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cenkalti/backoff/v4 v4.2.1 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect

@@ -22,6 +22,21 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Path:    "/health",
 				Handler: HealthCheckHandler(serverCtx),
 			},
+			{
+				Method:  http.MethodGet,
+				Path:    "/users",
+				Handler: UsersHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodPut,
+				Path:    "/",
+				Handler: StartSessionHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodDelete,
+				Path:    "/",
+				Handler: CloseSessionHandler(serverCtx),
+			},
 		},
 	)
 }
