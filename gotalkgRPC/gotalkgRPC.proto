@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package gotalk;
+
+option go_package = "./gotalk";
+
+message Request {
+}
+
+message Response {
+  string msg = 1;
+}
+
+service Hello {
+  rpc Hi(Request) returns(Response);
+}

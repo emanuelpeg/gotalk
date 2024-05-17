@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package gotalk;
+
+option go_package = "./gotalk";
+
+message RequestHealthCheck {
+}
+
+message ResponseHealthCheck {
+  string msg = 1;
+}
+
+service HealthCheck {
+  rpc health(RequestHealthCheck) returns (ResponseHealthCheck);
+}

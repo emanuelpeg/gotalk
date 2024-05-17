@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package gotalk;
+
+option go_package = "./gotalk";
+
+message RequestUser {
+}
+
+message ResponseUser {
+  string msg = 1;
+}
+
+message User {
+  string name = 1;
+  string ip = 2;
+}
+
+message RequestWithUserName {
+  string UserName = 1;
+}
+
+message ResponseWithSessionId {
+  string id = 1;
+}
+
+message RequestWithSessionId {
+  string id = 1;
+}
+
+message ResponseUsers {
+  repeated User Users = 1;
+}
+
+service UserService {
+  rpc Users(RequestUser) returns (ResponseUsers);
+  rpc StartSession(RequestWithUserName) returns (ResponseWithSessionId);
+  rpc CloseSession(RequestWithSessionId) returns (ResponseUser);
+}

@@ -1,8 +1,6 @@
 package svc
 
-import (
-	"gotalk/internal/config"
-)
+import "gotalk/internal/config"
 
 type ServiceContext struct {
 	Config config.Config
