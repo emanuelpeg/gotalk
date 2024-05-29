@@ -6,6 +6,8 @@ import (
 	"gotalk/client"
 	"gotalk/gotalk"
 	"gotalk/internal/types"
+	"log"
+	"net"
 	"sync"
 )
 
@@ -67,28 +69,15 @@ func (sessionLogic *SessionLogic) validateUserName(userName string) error {
 }
 
 func GetIp() (ipStr string, err error) {
-	/*ifaces, err := net.Interfaces()
-
+	conn, err := net.Dial("udp", "8.8.8.8:80")
 	if err != nil {
-		for _, i := range ifaces {
-			addrs, err := i.Addrs()
+		log.Fatal(err)
+	}
+	defer conn.Close()
 
-			if err != nil {
-				for _, addr := range addrs {
-					var ip net.IP
-					switch v := addr.(type) {
-					case *net.IPNet:
-						ip = v.IP
-					case *net.IPAddr:
-						ip = v.IP
-					}
-					ipStr = ip.String()
-				}
-			}
-		}
-	}*/
+	localAddress := conn.LocalAddr().(*net.UDPAddr)
 
-	return "127.0.0.1", nil
+	return localAddress.IP.String(), nil
 }
 
 func (sessionLogic *SessionLogic) CloseSession(req *gotalk.RequestWithSessionId) (resp *gotalk.ResponseUser, err error) {

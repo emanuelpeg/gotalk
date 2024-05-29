@@ -28,6 +28,7 @@ func main() {
 		gotalk.RegisterHelloServer(grpcServer, server.NewHelloServer(ctx))
 		gotalk.RegisterUserServiceServer(grpcServer, server.NewUserServiceServer(ctx))
 		gotalk.RegisterHealthCheckServer(grpcServer, server.NewHealthCheckServer(ctx))
+		gotalk.RegisterChatServiceServer(grpcServer, server.NewChatServiceServer(ctx))
 
 		if c.Mode == service.DevMode || c.Mode == service.TestMode {
 			reflection.Register(grpcServer)

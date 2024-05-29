@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package gotalk;
+
+option go_package = "./gotalk";
+
+message Empty {}
+
+message ChatMessage {
+  string sessionId = 1;
+  string user = 2;
+  string ip = 3;
+  string port = 4;
+  string message = 5;
+  int64 timestamp = 6;
+}
+
+message SessionId {
+  string sessionId = 1;
+}
+
+service ChatService {
+  rpc Send (stream ChatMessage) returns (Empty);
+
+  rpc Listener (SessionId) returns (stream ChatMessage);
+}
